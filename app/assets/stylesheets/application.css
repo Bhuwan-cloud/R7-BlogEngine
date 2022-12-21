@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ #navbr{
+    background-color: rgb(59, 58, 55);
+ }
+ #navcol{
+    color: yellow;
+ }
