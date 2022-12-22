@@ -9,11 +9,30 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%=link_to("Posts", posts_path, class:"nav-link active text-white")%>
+          <%= link_to("Posts", posts_path, class: "nav-link active text-white") %>
         </li>
         <li class="nav-item">
-          <%= link_to("About", about_path, class:"nav-link text-white")%>
+          <%= link_to("About", about_path, class: "nav-link text-white") %>
         </li>
+          <li class="nav-item ">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <% if current_user %>
+                  <%= current_user.email %>
+                <% else %>
+                  Please Log In 
+                <%  end %>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <% if user_signed_in? %>
+                  <%= button_to("Log out", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
+                <% else %>
+                  <%= link_to("Sign Up", new_user_registration_path, class: "dropdown-item") %>
+                  <%= link_to("Login", new_user_session_path, class: "dropdown-item") %>
+                <% end %>
+              </ul>
+            </div>
+          </li>
       </ul>
 
       <form class="d-flex" role="search">

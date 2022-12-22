@@ -17,11 +17,16 @@
   </head>
 
   <body>
-  <main>
-  <%= render("layouts/navbar") %>
-    <div class="container">
-      <%= yield %>
-    </div>
-  </main>
+    <header>
+      <%= render("layouts/navbar") %>
+    </header>
+
+    <main>
+      <div class="container">
+        <%= render("layouts/alerts")%>
+        <%= yield %>
+      </div>
+    </main>
+
   </body>
 </html>
