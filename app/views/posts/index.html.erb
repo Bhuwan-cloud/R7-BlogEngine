@@ -6,8 +6,7 @@
 
     <div class="p-2 flex-fill   bd-highlight">
 
-      <%# bootstrap Modal for form --------------------------------------------%>
-        <!-- Button trigger modal -->
+         <!---- Button trigger modal -->
           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
             New Post
           </button>
@@ -15,30 +14,29 @@
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-              <div class="modal-content" id="modal-col">
+              <div class="modal-content" >
                 <div class="modal-header">
-                  <h5 class="modal-title text-warning" id="exampleModalLabel">Add New Post</h5>
+                  <h5 class="modal-title " id="exampleModalLabel">Add New Post</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <%= render( "form", post: @post) %>
+                  <%= render("form", post: @post) %>
                 </div>
         
               </div>
             </div>
           </div>
-      <%# ------------------------------------------------------------- %>
-
+         <!-------------------------------------------------------------------------->
     </div>
 
   </div>
     
-
+    <!--  show action ------------------------------->
     <% @posts.each do |post| %>
       <div class="card w-75 my-3">
         <div class="card-body">
           <%= render(post) %>
-          <%= link_to("Show this post", post, class:"btn btn-primary") %>
+          <%= link_to("Show this post", post, class: "btn btn-primary") %>
         </div>
       </div>
     <% end %>

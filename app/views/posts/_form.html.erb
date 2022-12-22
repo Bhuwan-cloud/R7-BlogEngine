@@ -1,16 +1,15 @@
+
 <%= form_with(model: post) do |form| %>
+  <form>
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+       <%= form.text_field(:title, size: "22") %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Body</label>
+       <%= form.text_area(:body, size: "25x5") %>
+    </div>
 
-  <div>
-    <%= form.label(:title, style: "display: block", class:"text-warning") %>
-    <%= form.text_field(:title) %>
-  </div>
-
-  <div>
-    <%= form.label(:body, style: "display: block",class:"text-warning") %>
-    <%= form.text_area(:body) %>
-  </div>
-
-  <div>
-    <%= form.submit  %>
-  </div>
-<% end %>
+    <%= form.submit("Create Post", class: "btn btn-success") %>
+  </form>
+  <% end %>
