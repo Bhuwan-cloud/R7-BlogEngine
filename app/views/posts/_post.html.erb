@@ -1,5 +1,5 @@
 
     <h5 class="card-title"><%= post.title %></h5>
-    <p> Posted By:  <%= post.user.name %> </p>
+    <p> Posted By:  <%= link_to(post.user.name, user_path(post.user)) %> </p>
     <h6> <%= pluralize(post.views, "view") %></h6>
     <p class="card-text"><%= post.body %></p>
