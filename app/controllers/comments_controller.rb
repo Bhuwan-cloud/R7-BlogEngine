@@ -22,6 +22,19 @@ class CommentsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+  def update
+    @comment = @post.comments.find(params[:id])
+
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to post_url(@post), notice: "Comment has been updated" }
+      else
+        format.html { flash[:error] = "Comment has not been updated" }
+        format.html { redirect_to post_url(@post) }
+      end
+    end
+  end
+
   private
 
   def set_post
