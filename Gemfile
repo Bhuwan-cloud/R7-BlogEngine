@@ -74,3 +74,5 @@ end
 gem 'devise'
 
 gem 'solargraph', group: :development
+
+gem "noticed", "~> 1.6"

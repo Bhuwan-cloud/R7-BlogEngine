@@ -1,5 +1,4 @@
 
-
 <nav class="navbar navbar-expand-lg " id="navbr">
   <div class="container-fluid">
     <%= link_to("VLOG-R7", root_path, class: "navbar-brand h1", id: "navcol") %>
@@ -8,38 +7,56 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <!---------------------------Pages paths ----------------------->
         <li class="nav-item">
           <%= link_to("Posts", posts_path, class: "nav-link active text-white") %>
         </li>
         <li class="nav-item">
           <%= link_to("About", about_path, class: "nav-link text-white") %>
         </li>
-          <li class="nav-item ">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                <% if current_user %>
-                  <%= current_user.name %>
-                <% else %>
-                  Please Log In 
-                <% end %>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <% if user_signed_in? && current_user %>
-                  <%= button_to("Log out", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
-                  <%= link_to("Edit Account", edit_user_registration_path, class: "dropdown-item") %>
-                  <% else %>
-                  <%= link_to("Sign Up", new_user_registration_path, class: "dropdown-item") %>
-                  <%= link_to("Login", new_user_session_path, class: "dropdown-item") %>
-                <% end %>
-              </ul>
-            </div>
-          </li>
+
       </ul>
 
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+        <ul>
+          <!------Notifications ---------------------------->
+          <%= render("layouts/notifications" )%>
+        </ul>
+
+           <!------Sessions Manager ----------->
+              <div class="nav-item ">
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <% if current_user %>
+                      <%= current_user.name %>
+                    <% else %>
+                      Please Log In 
+                    <% end %>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <% if user_signed_in? && current_user %>
+                      <%= button_to("Log out", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
+                      <%= link_to("Edit Account", edit_user_registration_path, class: "dropdown-item") %>
+                      <% else %>
+                      <%= link_to("Sign Up", new_user_registration_path, class: "dropdown-item") %>
+                      <%= link_to("Login", new_user_session_path, class: "dropdown-item") %>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            <!---------------------------------->
+
+        <ul>
+
+        </ul>
+           <!-------------search Bar ------------------------>
+            <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
+        </ul>
+
+
 
     </div>
   </div>
