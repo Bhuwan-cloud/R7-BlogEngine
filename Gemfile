@@ -76,3 +76,5 @@ gem 'devise'
 gem 'solargraph', group: :development
 
 gem "noticed", "~> 1.6"
+
+gem "ransack", "~> 3.2"

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root("pages#home")
   get("about", to: "pages#about")
   # posts/1/comments/3
+  get("search", to: "search#index")
   resources(:posts) do
     resources :comments
   end
